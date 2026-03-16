@@ -4,6 +4,20 @@
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+const int SIZE = 15; //array size
+
+class Goat {
+private:
+    int age;
+    string name, color;
+    string names[SIZE] = { "Angela", "Barry", "Cynthia", "Delilah", "Eli",
+                           "Francis", "Ginny", "Hector", "Isiah", "Jasper",
+                           "Kendall", "Lenny", "Martha", "Nicole", "Opal" };
+    string color[SIZE] = { "Red", "Orange", "Yellow", "Green", "Blue",
+                           "Purple", "Pink", "Brown", "Black", "White",
+                           "Periwinkle", "Burgundy", "Rose", "Grey", "Cyan" };
+public:
+};
 
 class DoublyLinkedList {
 private:
