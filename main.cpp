@@ -43,14 +43,11 @@ public:
     string getColor()       { return color; }
     void setColor(string c) { color = c; }
     //print
-    int random = (rand() % (MAX2-MIN2+1) + MIN2);//random range 5-20
     void display() const {
-        for (int i = 0; i < random; ++i) {
-            Goat data;
-            cout << "\t";
-            cout << data.getName() << " (" << data.getColor();
-            cout << ", " << data.getAge() << ")" << endl;   
-        }
+        Goat data;
+        cout << "\t";
+        cout << data.getName() << " (" << data.getColor();
+        cout << ", " << data.getAge() << ")" << endl;   
     }
 };
 
@@ -189,11 +186,15 @@ int main() {
     DoublyLinkedList d;
     Goat g;
     
+    int random = (rand() % (MAX2-MIN2+1) + MIN2);//random range 5-20
+    for (int i = 0; i < random; ++i) {
+        d.push_back(Goat());
+    }
+    
     //output
     cout << "Forward: " << endl;
-    g.display();
+    d.print();
     cout << "Backward: " << endl;
-    cout << "\t";
     d.print_reverse();
     cout << endl;
     
