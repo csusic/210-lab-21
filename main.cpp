@@ -150,7 +150,9 @@ public:
 
     void print() {
         Node* current = head;
-        if (!current) return;
+        if (!current) {
+            cout << "List is empty";
+        };
         while (current) {
             current->data.display();
             current = current->next;
@@ -160,7 +162,9 @@ public:
 
     void print_reverse() {
         Node* current = tail;
-        if (!current) return;
+        if (!current) {
+            cout << "List is empty";
+        };
         while (current) {
             current->data.display();
             current = current->prev;
