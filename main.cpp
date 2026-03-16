@@ -29,7 +29,6 @@ public:
     }
     //parameter constructor
     Goat(int a, string b, string []) {
-        
     }
 };
 
@@ -53,8 +52,8 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void push_back(Goat g) {
-        Node* newNode = new Node(g);
+    void push_back(int value) {
+        Node* newNode = new Node(value);
         if (!tail)  // if there's no tail, the list is empty
             head = tail = newNode;
         else {
@@ -64,8 +63,8 @@ public:
         }
     }
 
-    void push_front(Goat g) {
-        Node* newNode = new Node(g);
+    void push_front(int value) {
+        Node* newNode = new Node(value);
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
         else {
@@ -167,24 +166,32 @@ int main() {
     //DoublyLinkedList object
     DoublyLinkedList d;
     int random = (rand() % (MAX2-MIN2+1) + MIN2);//random range 5-20
-    vector<Goat> goatObjects(random); 
-    goatObjects.append(d);
+    //vector<Goat> goatObjects;
     
-    DoublyLinkedList list;
-    int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
+    //output
+    cout << "Forward: ";
+    //for (int i = 0; i < random; ++i)
+        //goatObjects.push_back(d);
+    d.print();
+    cout << "Backward: ";
+    d.print_reverse();
+    
+    
+    //DoublyLinkedList list;
+    //int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
-    for (int i = 0; i < size; ++i)
-        list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
-    cout << "List forward: ";
-    list.print();
+    //for (int i = 0; i < size; ++i)
+        //list.push_back(rand() % (MAX_NR-MIN_NR+1) + MIN_NR);
+    //cout << "List forward: ";
+    //list.print();
 
-    cout << "List backward: ";
-    list.print_reverse();
+    //cout << "List backward: ";
+    //list.print_reverse();
 
     cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
+    d.~DoublyLinkedList();
     cout << "List forward: ";
-    list.print();
+    d.print();
 
     return 0;
 }
