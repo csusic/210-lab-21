@@ -30,8 +30,17 @@ public:
         color = colors[rand2];
     }
     //parameter constructor
-    Goat(int a, string b, string []) {
+    Goat(int a, string n, string c) {
+        age = a;
+        name = n;
+        color = c;
     }
+    int getAge()            { return age; }
+    void setAge(int a)      { age = a; }
+    string getName()        { return name; }
+    void setName(string n)  { name = n; }
+    string getColor()       { return color; }
+    void setColor(string c) { color = c; }
 };
 
 class DoublyLinkedList {
@@ -164,6 +173,9 @@ public:
 int main() {
     //declarations
     srand(time(0));
+    
+    Goat herd;
+    cout << herd.getName() << " " << herd.getColor() << " " << herd.getAge() << endl;   
     
     //DoublyLinkedList object
     DoublyLinkedList d;
