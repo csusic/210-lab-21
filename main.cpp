@@ -23,10 +23,10 @@ private:
 public:
     //default constructor
     Goat() {
-        age = (rand() % (MAX-MIN+1) + MIN);
-        int rand1 = (rand() % (MAX1-MIN1+1) + MIN1);
-        name = names[rand1];
+        int rand1 = (rand() % (MAX-MIN+1) + MIN);
+        age = rand1;
         int rand2 = (rand() % (MAX1-MIN1+1) + MIN1);
+        name = names[rand2];
         color = colors[rand2];
     }
     //parameter constructor
@@ -128,8 +128,6 @@ public:
         if (!head) return; // Empty list
 
         Node* temp = head;
-        //while (temp && temp->data != g)
-            //temp = temp->next;
 
         if (!temp) return; // Value not found
 
@@ -151,7 +149,7 @@ public:
     void print() {
         Node* current = head;
         if (!current) {
-            cout << "List is empty";
+            cout << "List is empty" << endl;
         };
         while (current) {
             current->data.display();
@@ -163,7 +161,7 @@ public:
     void print_reverse() {
         Node* current = tail;
         if (!current) {
-            cout << "List is empty";
+            cout << "List is empty" << endl;
         };
         while (current) {
             current->data.display();
@@ -192,7 +190,7 @@ int main() {
     
     int random = (rand() % (MAX2-MIN2+1) + MIN2);//random range 5-20
     for (int i = 0; i < random; ++i) {
-        d.push_back(Goat());
+        d.push_back(Goat(g));
     }
     
     //output
