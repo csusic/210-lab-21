@@ -24,8 +24,10 @@ public:
     //default constructor
     Goat() {
         age = (rand() % (MAX-MIN+1) + MIN);
-        name = (rand() % (MAX1-MIN1+1) + MIN1);
-        color = (rand() % (MAX1-MIN1+1) + MIN1);
+        int rand1 = (rand() % (MAX1-MIN1+1) + MIN1);
+        name = names[rand1];
+        int rand2 = (rand() % (MAX1-MIN1+1) + MIN1);
+        color = colors[rand2];
     }
     //parameter constructor
     Goat(int a, string b, string []) {
@@ -35,10 +37,10 @@ public:
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        Goat data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
+        Node(Goat val, Node* p = nullptr, Node* n = nullptr) {
             data = val; 
             prev = p;
             next = n;
@@ -52,8 +54,8 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void push_back(int value) {
-        Node* newNode = new Node(value);
+    void push_back(Goat g) {
+        Node* newNode = new Node(g);
         if (!tail)  // if there's no tail, the list is empty
             head = tail = newNode;
         else {
@@ -63,8 +65,8 @@ public:
         }
     }
 
-    void push_front(int value) {
-        Node* newNode = new Node(value);
+    void push_front(Goat g) {
+        Node* newNode = new Node(g);
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
         else {
@@ -74,13 +76,13 @@ public:
         }
     }
 
-    void insert_after(int value, int position) {
+    void insert_after(Goat g, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
         }
 
-        Node* newNode = new Node(value);
+        Node* newNode = new Node(g);
         if (!head) {
             head = tail = newNode;
             return;
@@ -105,7 +107,7 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(int value) {
+    /*void delete_node(int value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
@@ -127,13 +129,13 @@ public:
         }
 
         delete temp;
-    }
+    }*/
 
     void print() {
         Node* current = head;
         if (!current) return;
         while (current) {
-            cout << current->data << " ";
+            //cout << current->data << " ";
             current = current->next;
         }
         cout << endl;
@@ -143,7 +145,7 @@ public:
         Node* current = tail;
         if (!current) return;
         while (current) {
-            cout << current->data << " ";
+            //cout << current->data << " ";
             current = current->prev;
         }
         cout << endl;
@@ -166,12 +168,12 @@ int main() {
     //DoublyLinkedList object
     DoublyLinkedList d;
     int random = (rand() % (MAX2-MIN2+1) + MIN2);//random range 5-20
-    //vector<Goat> goatObjects;
+    Goat goatObjects;
     
     //output
     cout << "Forward: ";
-    //for (int i = 0; i < random; ++i)
-        //goatObjects.push_back(d);
+    for (int i = 0; i < random; ++i)
+        //goatObjects.append(d);
     d.print();
     cout << "Backward: ";
     d.print_reverse();
