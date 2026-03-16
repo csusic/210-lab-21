@@ -35,12 +35,23 @@ public:
         name = n;
         color = c;
     }
+    //setters and getters
     int getAge()            { return age; }
     void setAge(int a)      { age = a; }
     string getName()        { return name; }
     void setName(string n)  { name = n; }
     string getColor()       { return color; }
     void setColor(string c) { color = c; }
+    //print
+    int random = (rand() % (MAX2-MIN2+1) + MIN2);//random range 5-20
+    void display() const {
+        for (int i = 0; i < random; ++i) {
+            Goat data;
+            cout << "\t";
+            cout << data.getName() << " (" << data.getColor();
+            cout << ", " << data.getAge() << ")" << endl;   
+        }
+    }
 };
 
 class DoublyLinkedList {
@@ -116,12 +127,12 @@ public:
         temp->next = newNode;
     }
 
-    /*void delete_node(int value) {
+    void delete_node(Goat g) {
         if (!head) return; // Empty list
 
         Node* temp = head;
-        while (temp && temp->data != value)
-            temp = temp->next;
+        //while (temp && temp->data != g)
+            //temp = temp->next;
 
         if (!temp) return; // Value not found
 
@@ -138,13 +149,13 @@ public:
         }
 
         delete temp;
-    }*/
+    }
 
     void print() {
         Node* current = head;
         if (!current) return;
         while (current) {
-            //cout << current->data << " ";
+            current->data.display();
             current = current->next;
         }
         cout << endl;
@@ -154,7 +165,7 @@ public:
         Node* current = tail;
         if (!current) return;
         while (current) {
-            //cout << current->data << " ";
+            current->data.display();
             current = current->prev;
         }
         cout << endl;
@@ -174,22 +185,17 @@ int main() {
     //declarations
     srand(time(0));
     
-    Goat herd;
-    cout << herd.getName() << " " << herd.getColor() << " " << herd.getAge() << endl;   
-    
     //DoublyLinkedList object
     DoublyLinkedList d;
-    int random = (rand() % (MAX2-MIN2+1) + MIN2);//random range 5-20
-    Goat goatObjects;
+    Goat g;
     
     //output
-    cout << "Forward: ";
-    for (int i = 0; i < random; ++i)
-        //goatObjects.append(d);
-    d.print();
-    cout << "Backward: ";
+    cout << "Forward: " << endl;
+    g.display();
+    cout << "Backward: " << endl;
+    cout << "\t";
     d.print_reverse();
-    
+    cout << endl;
     
     //DoublyLinkedList list;
     //int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
