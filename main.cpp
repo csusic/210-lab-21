@@ -4,7 +4,10 @@
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
-const int SIZE = 15; //array size
+const int SIZE = 15; //array size 15
+const int MIN = 1, MAX = 20; // age range 1-20
+const int MIN1 = 0, MAX1 = SIZE - 1; //array 0-14
+const int MIN2 = 5, MAX2 = 20; //goat objects 5-20
 
 class Goat {
 private:
@@ -13,10 +16,20 @@ private:
     string names[SIZE] = { "Angela", "Barry", "Cynthia", "Delilah", "Eli",
                            "Francis", "Ginny", "Hector", "Isiah", "Jasper",
                            "Kendall", "Lenny", "Martha", "Nicole", "Opal" };
-    string color[SIZE] = { "Red", "Orange", "Yellow", "Green", "Blue",
+    string colors[SIZE] = { "Red", "Orange", "Yellow", "Green", "Blue",
                            "Purple", "Pink", "Brown", "Black", "White",
                            "Periwinkle", "Burgundy", "Rose", "Grey", "Cyan" };
 public:
+    //default constructor
+    Goat() {
+        age = (rand() % (MAX-MIN+1) + MIN);
+        name = (rand() % (MAX1-MIN1+1) + MIN1);
+        color = (rand() % (MAX1-MIN1+1) + MIN1);
+    }
+    //parameter constructor
+    Goat(int a, string b, string []) {
+        
+    }
 };
 
 class DoublyLinkedList {
@@ -147,6 +160,13 @@ public:
 
 // Driver program
 int main() {
+    //declarations
+    srand(time(0));
+    
+    //DoublyLinkedList object
+    DoublyLinkedList d;
+    (rand() % (MAX2-MIN2+1) + MIN2);
+    
     DoublyLinkedList list;
     int size = rand() % (MAX_LS-MIN_LS+1) + MIN_LS;
 
